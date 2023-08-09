@@ -81,7 +81,21 @@ public class Automovil {
        return  km/(this.tanque*porcentajeGas);
      }
 
-    public float calcularConsumo(int km, int porcentajeGas){
+     public float calcularConsumo(int km, int porcentajeGas){
         return  km/(this.tanque*(porcentajeGas/100f));
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj){
+            return true;
+        }
+        if(!(obj instanceof Automovil a)){
+            return false;
+        }
+
+        return (this.fabricante != null && this.modelo != null
+                && this.fabricante.equals(a.getFabricante())
+                &&this.modelo.equals(getModelo()));
     }
 }

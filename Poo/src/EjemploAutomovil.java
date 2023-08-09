@@ -7,6 +7,18 @@ public class EjemploAutomovil {
         nissan.setCilindrada(3.0);
         nissan.setTanque(50);
 
+        Automovil nissan2 = new Automovil("Nissan","370z");
+
+        Automovil audi = new Automovil();
+
+        nissan.setColor("Plata");
+        nissan.setCilindrada(3.0);
+        nissan.setTanque(50);
+
+        System.out.println(nissan.equals(nissan2));
+        System.out.println(audi.equals(nissan2));
+
+
         Automovil chevrolet = new Automovil("chevrolet","Camaro zz");
 
         chevrolet.setColor ("Amarillo con rayas");
