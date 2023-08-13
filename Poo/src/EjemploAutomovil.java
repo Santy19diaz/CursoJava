@@ -1,4 +1,4 @@
-public class EjemploAutomovil {
+/*public class EjemploAutomovil {
     public static void main(String[] args) {
 
         Automovil nissan = new Automovil("Nissan","370z");
@@ -17,7 +17,7 @@ public class EjemploAutomovil {
 
         System.out.println(nissan.equals(nissan2));
         System.out.println(audi.equals(nissan2));
-
+        System.out.println(nissan);
 
         Automovil chevrolet = new Automovil("chevrolet","Camaro zz");
 
@@ -43,4 +43,4 @@ public class EjemploAutomovil {
 
 
     }
-}
+}*/

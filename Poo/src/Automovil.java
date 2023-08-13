@@ -1,21 +1,48 @@
 public class Automovil {
-
+    private int id;
     private String fabricante;
     private String modelo;
-    private String color;
+    private Color color = Color.GRIS;
     private double cilindrada;
     private int tanque = 40;
-
+    private static Color colorPatente = Color.NEGRO;
+    private static int tanqueEstatico = 30;
+    private static int ultimoid;
+    public static final Integer VELOCIDAD_MAXIMA_CARRETERA = 120;
+    public static final Integer VELOCIDAD_MAXIMA_CIUDAD = 60;
+    public Automovil(){
+        this.id = ++ultimoid;
+    }
     public Automovil(String fabricante, String modelo){
-
+        this();
         this.fabricante = fabricante;
         this.modelo = modelo;
-
     }
-    public Automovil(){}
 
+    public Automovil(String fabricante, String modelo, Color color){
+        this(fabricante,modelo);
+        this.color = color;
+    }
+
+    public Automovil(String fabricante, String modelo, Color color,double cilindrada){
+        this(fabricante,modelo,color);
+        this.cilindrada = cilindrada;
+    }
+
+    public Automovil(String fabricante, String modelo, Color color,double cilindrada,int tanque){
+        this(fabricante,modelo,color,cilindrada);
+        this.tanque = tanque;
+    }
     public String getFabricante() {
         return fabricante;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setFabricante(String fabricante) {
@@ -30,11 +57,11 @@ public class Automovil {
         this.modelo = modelo;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 
@@ -54,12 +81,29 @@ public class Automovil {
         this.tanque = tanque;
     }
 
+    public static Color getColorPatente(){
+        return colorPatente;
+    }
+    public static void setColorPatente(Color colorPatente){
+        Automovil.colorPatente = colorPatente;
+    }
+
+    public static int getTanqueEstatico() {
+        return tanqueEstatico;
+    }
+
+    public static void setTanqueEstatico(int tanqueEstatico) {
+        Automovil.tanqueEstatico = tanqueEstatico;
+    }
+
     public String verDetalle(){
 
-        return "\nfabricante : " + this.fabricante +
+        return  "\nid : " + this.id +
+                "\nfabricante : " + this.fabricante +
                 "\nmodelo : " + this.modelo +
                 "\ncolor : " + this.color +
-                "\ncilindrada : " + this.cilindrada;
+                "\ncolor.patente = " + colorPatente +
+                "\ncilindrada : " + this.cilindrada + '\n';
     }
 
     public String acelerar(int rpm){
@@ -85,6 +129,11 @@ public class Automovil {
         return  km/(this.tanque*(porcentajeGas/100f));
     }
 
+    public static float calcularConsumoEstatico(int km, int porcentajeGas){
+        return  km/(Automovil.tanqueEstatico * (porcentajeGas/100f));
+    }
+
+
     @Override
     public boolean equals(Object obj) {
         if(this == obj){
@@ -97,5 +146,10 @@ public class Automovil {
         return (this.fabricante != null && this.modelo != null
                 && this.fabricante.equals(a.getFabricante())
                 &&this.modelo.equals(getModelo()));
+    }
+
+    @Override
+    public String toString() {
+        return this.id + " : " + fabricante + " " +modelo;
     }
 }
