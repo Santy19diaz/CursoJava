@@ -7,6 +7,8 @@ public class Automovil {
     private int tanque = 40;
     private static Color colorPatente = Color.NEGRO;
     private static int tanqueEstatico = 30;
+
+    private TipoAutomovil tipo;
     private static int ultimoid;
     public static final Integer VELOCIDAD_MAXIMA_CARRETERA = 120;
     public static final Integer VELOCIDAD_MAXIMA_CIUDAD = 60;
@@ -99,11 +101,12 @@ public class Automovil {
     public String verDetalle(){
 
         return  "\nid : " + this.id +
-                "\nfabricante : " + this.fabricante +
-                "\nmodelo : " + this.modelo +
-                "\ncolor : " + this.color +
-                "\ncolor.patente = " + colorPatente +
-                "\ncilindrada : " + this.cilindrada + '\n';
+                "\nfabricante : " + this.getFabricante() +
+                "\nmodelo : " + this.getModelo() +
+                "\ntipo : " + this.getTipo().getNombre() +
+                "\ncolor : " + this.getColor() +
+                "\ncolor.patente = " + getColorPatente() +
+                "\ncilindrada : " + this.getCilindrada() + '\n';
     }
 
     public String acelerar(int rpm){
@@ -133,6 +136,13 @@ public class Automovil {
         return  km/(Automovil.tanqueEstatico * (porcentajeGas/100f));
     }
 
+    public TipoAutomovil getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoAutomovil tipo) {
+        this.tipo = tipo;
+    }
 
     @Override
     public boolean equals(Object obj) {
